@@ -1,12 +1,12 @@
 package cr.go.ice.medios.pages;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage {
 	private final WebDriver driver;
@@ -22,11 +22,13 @@ public class MainPage {
 	}
 	
 	public void login(){
-		wait.until(ExpectedConditions.titleIs("Sistema gestión de medios"));
+		String tmpTitle = "Sistema gesti\u00f3n de medios";
+		wait.until(ExpectedConditions.titleIs(tmpTitle));
+		
 	}
 	
 	public void openOrdenPauta(){
-		driver.findElement(By.xpath("//span[text()='Orden de pauta']")).click(); 
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("j_id43")));
+		driver.findElement(By.xpath("//span[text()='Orden de pauta']")).click();
+		new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("j_id43")));
 	}
 }
