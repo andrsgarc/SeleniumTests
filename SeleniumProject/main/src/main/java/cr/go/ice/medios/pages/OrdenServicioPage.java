@@ -28,13 +28,10 @@ public class OrdenServicioPage {
 		
 	}
 	
-	public void openOrdenPauta(){
-		driver.findElement(By.xpath("//span[text()='Orden de pauta']")).click();
-		new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("j_id43")));
-	}
-	
 	public void openFormSerOrdenServicio(){		
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.findElement(By.id("listSerOrdenServicio:btnInsertarSerOrdenServicio")).click();
+		//new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("formSerOrdenServicio:txt_numeroOrden")));
 	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).clear();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).sendKeys("345098");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).clear();
@@ -42,15 +39,16 @@ public class OrdenServicioPage {
 	    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).clear();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).sendKeys("2009-8877-5999");
 	    driver.findElement(By.id("formSerOrdenServicio:btnInsertarRazonSocial")).click();
+	    //new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("popupListMedRazonSocial:dtMedRazonSocial")));
 	    driver.findElement(By.id("popupListMedRazonSocial:dtMedRazonSocial:0:btnSelect")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:cbOrgSector")).click();
 	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbSector"))).selectByVisibleText("TELECOMUNICACIONES");
 	    driver.findElement(By.id("formSerOrdenServicio:cbOrgDireccion")).click();
-	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbDireccion"))).selectByVisibleText("Negocio Comunicación");
+	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbDireccion"))).selectByVisibleText("Negocio Comunicaciï¿½n");
 	    driver.findElement(By.id("formSerOrdenServicio:cbNegocio")).click();
-	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbNegocio"))).selectByVisibleText("Comunicación");
-	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbProceso"))).selectByVisibleText("Negocio Comunicación");
-	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbTipoContrato"))).selectByVisibleText("Agencias de publicidad y producción");
+	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbNegocio"))).selectByVisibleText("Comunicaciï¿½n");
+	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbProceso"))).selectByVisibleText("Negocio Comunicaciï¿½n");
+	    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbTipoContrato"))).selectByVisibleText("Agencias de publicidad y producciï¿½n");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).clear();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).sendKeys("1000000");
