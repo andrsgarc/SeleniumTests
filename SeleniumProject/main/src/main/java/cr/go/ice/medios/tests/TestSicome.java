@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TestSicome {
 	protected final static WebDriver driver = new FirefoxDriver();
 	//protected final static String host = "http://dizuni1:r383ki1az0@cer.infocom.ice/iceMedios/";
-	protected final static String host = "http://admin:admin@172.16.0.112:9080/iceMedios/";
+	protected final static String host = "http://admin:admin@localhost:8080/ice-medios-web/";
 	
 	@Before
 	public void before(){
