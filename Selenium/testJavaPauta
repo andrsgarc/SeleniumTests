@@ -1,0 +1,97 @@
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class TestJavaPauta {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://172.16.0.112:9080/iceMedios/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testJavaPauta() throws Exception {
+    driver.get(baseUrl + "/iceMedios/");
+    driver.findElement(By.id("listSerOrdenServicio:j_id3322")).click();
+    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).clear();
+    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).sendKeys("201499");
+    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).clear();
+    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).sendKeys("20149988");
+    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).clear();
+    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).sendKeys("2000-4000-9595");
+    driver.findElement(By.id("formSerOrdenServicio:j_id3519")).click();
+    driver.findElement(By.id("popupListMedRazonSocial:dtMedRazonSocial:1:btnSelect")).click();
+    driver.findElement(By.id("formSerOrdenServicio:cbOrgSector")).click();
+    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbSector"))).selectByVisibleText("TELECOMUNICACIONES");
+    driver.findElement(By.id("formSerOrdenServicio:cbOrgDireccion")).click();
+    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbDireccion"))).selectByVisibleText("Estrategia de Marca");
+    driver.findElement(By.id("formSerOrdenServicio:cbNegocio")).click();
+    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbNegocio"))).selectByVisibleText("Estrategia de Marca");
+    new Select(driver.findElement(By.id("formSerOrdenServicio:cmbProceso"))).selectByVisibleText("Estrategia de Marca");
+    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).click();
+    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).clear();
+    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).sendKeys("1000000");
+    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).click();
+    driver.findElement(By.id("listSerOrdenServicio:j_id3715")).click();
+    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).clear();
+    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).sendKeys("1000000");
+    driver.findElement(By.id("formSerOrdenServicio:j_id3588")).click();
+    driver.findElement(By.id("formSerOrdenServicio:j_id3473")).click();
+    driver.findElement(By.id("formSerOrdenServicio:cbOrgSector")).click();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
