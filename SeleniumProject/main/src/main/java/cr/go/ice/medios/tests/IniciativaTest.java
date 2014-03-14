@@ -15,4 +15,14 @@ public class IniciativaTest extends TestSicome{
 		tmpIniciativaPage.login();
 		tmpIniciativaPage.openFormIniciativa();
 	}
+	
+	
+	@Test
+	public void crearCampanniaTest() throws Exception {
+		
+		IniciativaPage tmpIniciativaPage = new IniciativaPage(driver);
+		tmpIniciativaPage.login();
+		//tmpIniciativaPage.openFormIniciativa();
+		tmpIniciativaPage.crearCampannia();
+	}
 }
