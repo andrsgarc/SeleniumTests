@@ -16,7 +16,7 @@ import com.google.common.base.Function;
 public class IniciativaPage {
 	private final WebDriver driver;
 	private final Wait<WebDriver> wait;
-	String _iniciativaName = "IniSel2014M16"; 
+	String _iniciativaName = "IniSel2014M34"; 
 	public IniciativaPage(WebDriver driver) {
 		this.driver = driver;
 		
@@ -73,16 +73,18 @@ public class IniciativaPage {
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:txt_nombreCampana")).clear();
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:txt_nombreCampana")).sendKeys(_iniciativaName);
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
-	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_ct']")));
-	    driver.findElement(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_ct']//span[text()=15]")).click();	    
+	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_ct']//span[text()=15]")));
+	    driver.findElement(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_ct']//span[text()=15]")).click();
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaFin_cb")).click();
-	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaFin_ct']")));
+	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaFin_ct']//span[text()=25]")));
 	    driver.findElement(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaFin_ct']//span[text()=25]")).click();
-	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaFin_cb")).click();
-	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
+	    //driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaFin_cb")).click();
+	    //driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
+	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaFin' and contains(@value, '25')]")));
+
 	    driver.findElement(By.id("formIniIniciativa:btnContinuar")).click();
-	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
-	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaFin_cb")).click();
+	    //driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
+	    //driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaFin_cb")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("formIniIniciativa:tabSetIniIniciativa:0:cambiarSector"))); 
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:orgSector")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//option[text()='TELECOMUNICACIONES']")));
@@ -161,7 +163,13 @@ public class IniciativaPage {
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).clear();
 	    
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("100");
-	    //driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:actualizarListaPresupuestoCampanna")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("100");
+
+	    //driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
+	    //new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled) and contains(@value, 100)]")));
+
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
 
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:btnGuardarCampannia")).click();
 	    driver.findElement(By.id("popupFormAudit:txt_observacion")).clear();

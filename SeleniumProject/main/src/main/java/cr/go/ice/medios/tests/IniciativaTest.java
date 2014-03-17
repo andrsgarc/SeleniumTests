@@ -22,7 +22,7 @@ public class IniciativaTest extends TestSicome{
 		
 		IniciativaPage tmpIniciativaPage = new IniciativaPage(driver);
 		tmpIniciativaPage.login();
-		//tmpIniciativaPage.openFormIniciativa();
+		tmpIniciativaPage.openFormIniciativa();
 		tmpIniciativaPage.crearCampannia();
 	}
 }
