@@ -16,7 +16,7 @@ import com.google.common.base.Function;
 public class IniciativaPage {
 	private final WebDriver driver;
 	private final Wait<WebDriver> wait;
-	String _iniciativaName = "IniSel2014M36"; 
+	String _iniciativaName = "IniSel2014M48"; 
 	public IniciativaPage(WebDriver driver) {
 		this.driver = driver;
 		
@@ -34,8 +34,8 @@ public class IniciativaPage {
 	
 	public void fluentWait(final By locator, final String argText) {
 	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-	            .withTimeout(60, TimeUnit.SECONDS)
-	            .pollingEvery(5, TimeUnit.SECONDS)
+	            .withTimeout(120, TimeUnit.SECONDS)
+	            .pollingEvery(10, TimeUnit.SECONDS)
 	            .ignoring(NoSuchElementException.class);
 
 	    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
@@ -84,6 +84,7 @@ public class IniciativaPage {
 
 	    driver.findElement(By.id("formIniIniciativa:btnContinuar")).click();
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
+	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio' and contains(@value, '15')]")));
 	    //driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaFin_cb")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("formIniIniciativa:tabSetIniIniciativa:0:cambiarSector"))); 
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:orgSector")).click();
@@ -162,14 +163,14 @@ public class IniciativaPage {
 	    
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).clear();
 	    
-	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("100");
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("80");
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("100");
 
 	    //driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
 	    //new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled) and contains(@value, 100)]")));
 
-	    driver.findElement(By.xpath("//span[text()='Total']")).click();
 	    driver.findElement(By.xpath("//span[text()='Total']")).click();
 
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:btnGuardarCampannia")).click();
@@ -179,7 +180,7 @@ public class IniciativaPage {
 		
 	}
 	
-	public void crearCampanniaTarget()
+	public void ingresarCampannia()
 	{
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();
@@ -192,6 +193,13 @@ public class IniciativaPage {
 	    
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@id='formIniIniciativa:tabSetIniIniciativa:0.2']")));
 	    driver.findElement(By.xpath("//a[@id='formIniIniciativa:tabSetIniIniciativa:0.2']")).click();
+		
+		
+	}
+	
+	public void crearCampanniaTarget()
+	{
+		ingresarCampannia();
 	    
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@id='formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0.1']")));	    
 	    driver.findElement(By.xpath("//a[@id='formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0.1']")).click();
@@ -212,7 +220,7 @@ public class IniciativaPage {
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Todo el pa\u00EDs']")));
 	    
 	   // driver.findElement(By.xpath("//input[starts-with(@id,'popupFormOrgProvincia:dtOrgRegion:0') and @type='image']")).click();
-	    driver.findElement(By.xpath("//input[starts-with(@id,'popupFormOrgProvincia:dtOrgRegion:0') and starts-with(@src,'/ice-medios-web/imagenes/botones/CheckBox_Normal.png')]")).click();
+	    //driver.findElement(By.xpath("//input[starts-with(@id,'popupFormOrgProvincia:dtOrgRegion:0') and starts-with(@src,'/ice-medios-web/imagenes/botones/CheckBox_Normal.png')]")).click();
 	    
 	    driver.findElement(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/aceptar.gif']")).click();
 
@@ -225,4 +233,25 @@ public class IniciativaPage {
 	    driver.findElement(By.id("popupFormAudit:btnAcepptConfirmation")).click();		
 		
 	}
+	
+	
+	public void ejecutarCampannia()
+	{
+		ingresarCampannia();
+	    
+		driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:btnPorAprobarFwd")).click();
+	    driver.findElement(By.id("confirmationPopup:btnAcepptConfirmation")).click();
+	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:btnAprobadoFwd")).click();
+	    driver.findElement(By.id("confirmationPopup:btnAcepptConfirmation")).click();
+	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:btnEjecutarFwd")).click();
+	    driver.findElement(By.id("confirmationPopup:btnAcepptConfirmation")).click();
+	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:btnGuardarCampannia")).click();
+	    driver.findElement(By.id("popupFormAudit:txt_observacion")).clear();
+	    driver.findElement(By.id("popupFormAudit:txt_observacion")).sendKeys("Guardar campaña ejecucion");
+	    driver.findElement(By.id("popupFormAudit:btnAcepptConfirmation")).click();
+		
+		
+	}
+	
+	
 }

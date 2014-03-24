@@ -27,9 +27,18 @@ public class IniciativaTest extends TestSicome{
 	}
 	
 	@Test
-	public void crearCampanniaTarget() throws Exception {
+	public void crearCampanniaTargetTest() throws Exception {
 		
 		IniciativaPage tmpIniciativaPage = new IniciativaPage(driver);
+		tmpIniciativaPage.login();
 		tmpIniciativaPage.crearCampanniaTarget();
+	}
+	
+	@Test
+	public void ejecutarCampanniaTest() throws Exception {
+		
+		IniciativaPage tmpIniciativaPage = new IniciativaPage(driver);
+		tmpIniciativaPage.login();
+		tmpIniciativaPage.ejecutarCampannia();
 	}
 }
