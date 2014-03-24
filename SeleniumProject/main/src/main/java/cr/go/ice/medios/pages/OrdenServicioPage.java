@@ -49,47 +49,29 @@ public class OrdenServicioPage {
 
 	};
 	
-	public void fluentWaitInput(final By argInputSelect) {
-	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-	            .withTimeout(60, TimeUnit.SECONDS)
-	            .pollingEvery(5, TimeUnit.SECONDS)
-	            .ignoring(NoSuchElementException.class);
-
-	    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
-	        public WebElement apply(WebDriver driver) {
-	        	
-	        	WebElement tmpElement = driver.findElement(argInputSelect);
-	            return tmpElement;
-	        }
-	    });
-
-	};
 	
-	public void openFormSerOrdenServicio(){		
+	public void openFormSerOrdenServicio() throws InterruptedException{		
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		driver.findElement(By.xpath("//span[text()='Orden de servicio']")).click();
 		driver.findElement(By.xpath("//span[text()='Orden de servicio']")).click();
 		driver.findElement(By.id("listSerOrdenServicio:btnInsertarSerOrdenServicio")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).clear();
-	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).sendKeys("345098");
+	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).sendKeys("345198");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).clear();
-	    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).sendKeys("45996801");
+	    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).sendKeys("45936801");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).clear();
-	    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).sendKeys("2009-8877-5999");
+	    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).sendKeys("2109-8477-5999");
 	    driver.findElement(By.id("formSerOrdenServicio:btnInsertarRazonSocial")).click();
 	    
 	    driver.findElement(By.id("popupListMedRazonSocial:dtMedRazonSocial:0:btnSelect")).click();
-	    fluentWaitInput(By.id("formSerOrdenServicio:cbOrgSector"));
-	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//option[text()='TELECOMUNICACIONES']")));
+	    Thread.sleep(500);
 	    fluentWait(By.id("formSerOrdenServicio:cmbSector"), "OrgSector[id=50050]");
-	    fluentWaitInput(By.id("formSerOrdenServicio:cbOrgDireccion"));
-	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//option[text()='Negocio Comunicaci\u00f3n']")));
+	    Thread.sleep(500);
 	    fluentWait(By.id("formSerOrdenServicio:cmbDireccion"), "OrgDireccion[id=52152]");
-	    fluentWaitInput(By.id("formSerOrdenServicio:cbNegocio"));
-	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//option[text()='Comunicaci\u00f3n']")));
+	    Thread.sleep(500);
 	    fluentWait(By.id("formSerOrdenServicio:cmbNegocio"), "NegNegocio[id=5]");
-	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//option[@value='OrgProceso[id=51353]' and text()='Negocio Comunicaci\u00f3n']")));
+	    Thread.sleep(500);
 	    fluentWait(By.id("formSerOrdenServicio:cmbProceso"), "OrgProceso[id=51353]");
 
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).click();
