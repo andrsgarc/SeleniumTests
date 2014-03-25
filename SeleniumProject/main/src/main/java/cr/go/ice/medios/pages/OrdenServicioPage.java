@@ -57,7 +57,7 @@ public class OrdenServicioPage {
 		driver.findElement(By.xpath("//span[text()='Orden de servicio']")).click();
 		driver.findElement(By.id("listSerOrdenServicio:btnInsertarSerOrdenServicio")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).clear();
-	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).sendKeys("345198");
+	    driver.findElement(By.id("formSerOrdenServicio:txt_numeroOrden")).sendKeys("375199");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).clear();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_contratacion")).sendKeys("45936801");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_compromiso")).clear();
@@ -74,12 +74,18 @@ public class OrdenServicioPage {
 	    Thread.sleep(500);
 	    fluentWait(By.id("formSerOrdenServicio:cmbProceso"), "OrgProceso[id=51353]");
 
+	    
+	    Thread.sleep(500);
+	    fluentWait(By.id("formSerOrdenServicio:cmbTipoContrato"), "NegTipoContrato[id=1]");
+	    
+	    
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).clear();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).sendKeys("1000000");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).clear();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).sendKeys("1000000");
+	    driver.findElement(By.id("formSerOrdenServicio:btnActivarOrdenServicio")).click();		
 	    driver.findElement(By.id("formSerOrdenServicio:btnGuardarSerOrdenServicio")).click();		
 	}
 }

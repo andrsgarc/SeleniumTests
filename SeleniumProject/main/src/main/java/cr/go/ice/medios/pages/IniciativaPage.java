@@ -16,7 +16,7 @@ import com.google.common.base.Function;
 public class IniciativaPage {
 	private final WebDriver driver;
 	private final Wait<WebDriver> wait;
-	String _iniciativaName = "IniSel2014M65"; 
+	String _iniciativaName = "IniSel2014M80"; 
 	public IniciativaPage(WebDriver driver) {
 		this.driver = driver;
 		
@@ -91,7 +91,7 @@ public class IniciativaPage {
 	}
 	
 	
-	public void crearCampannia()
+	public void crearCampannia() throws InterruptedException
 	{	
 
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -141,15 +141,45 @@ public class IniciativaPage {
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:scbPorcentaje")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")));
 
-	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:0') and not(@disabled)]")).click();
+	    
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:0') and not(@disabled)]")).clear();
+	    
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:0') and not(@disabled)]")).sendKeys("20.00");
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:0') and not(@disabled)]")).click();
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:0') and not(@disabled)]")).sendKeys("20.00");
+
+driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:1') and not(@disabled)]")).click();
+	    
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:1') and not(@disabled)]")).clear();
+	    Thread.sleep(500);
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:1') and not(@disabled)]")).sendKeys("20.00");
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	    
+driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:2') and not(@disabled)]")).click();
+	    
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:2') and not(@disabled)]")).clear();
+	    Thread.sleep(500);
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:2') and not(@disabled)]")).sendKeys("20.00");
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	    
+driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:3') and not(@disabled)]")).click();
+	    
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:3') and not(@disabled)]")).clear();
+	    Thread.sleep(500);
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:3') and not(@disabled)]")).sendKeys("20.00");
+	    driver.findElement(By.xpath("//span[text()='Total']")).click();
+	
+driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
 	    
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).clear();
-	    
-	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("80");
-	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).click();
+	    Thread.sleep(500);
 	    driver.findElement(By.xpath("//span[text()='Total']")).click();
-	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("100");
-
+	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")).sendKeys("20.00");
 	    driver.findElement(By.xpath("//span[text()='Total']")).click();
 
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:btnGuardarCampannia")).click();
