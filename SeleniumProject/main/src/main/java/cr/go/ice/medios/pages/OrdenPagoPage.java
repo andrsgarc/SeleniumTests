@@ -1,56 +1,15 @@
 package cr.go.ice.medios.pages;
 
-import java.util.Calendar;
-import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.common.base.Function;
-
-public class OrdenPagoPage {
-	private final WebDriver driver;
-	private final Wait<WebDriver> wait;
+public class OrdenPagoPage extends MainPage {
 
 	public OrdenPagoPage(WebDriver driver) {
-		this.driver = driver;
-		
-		FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver);
-		wait = fluentWait
-					.withTimeout(60, TimeUnit.SECONDS)
-					.pollingEvery(2, TimeUnit.SECONDS);
+		super(driver);
 	}
-	
-	public void login(){
-		String tmpTitle = "Sistema gesti\u00f3n de medios";
-		wait.until(ExpectedConditions.titleIs(tmpTitle));
-		
-	}
-	
-	public void fluentWait(final By locator, final String argText) {
-	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-	            .withTimeout(60, TimeUnit.SECONDS)
-	            .pollingEvery(5, TimeUnit.SECONDS)
-	            .ignoring(NoSuchElementException.class);
-
-	    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
-	        public WebElement apply(WebDriver driver) {
-	        	
-	        	WebElement tmpElement = driver.findElement(locator);
-	        	new Select(tmpElement).selectByValue(argText);
-	            return tmpElement;
-	        }
-	    });
-
-	};
 	
 	
 	public void openFormPagOrdenPago() throws InterruptedException{		
@@ -71,7 +30,7 @@ public class OrdenPagoPage {
 	    driver.findElement(By.id("formPagOrdenPago:txtConceptoPago")).sendKeys("Pago Ordenes Testing");
 	    driver.findElement(By.id("formPagOrdenPago:btnBuscarOrden")).click();
 	    driver.findElement(By.id("popupListSerOrdenServicio:txtNumeroOrden")).clear();
-	    driver.findElement(By.id("popupListSerOrdenServicio:txtNumeroOrden")).sendKeys("375199");
+	    driver.findElement(By.id("popupListSerOrdenServicio:txtNumeroOrden")).sendKeys(ORDEN_SERVICIO_NUMERO);
 	    driver.findElement(By.id("popupListSerOrdenServicio:btnConsultar")).click();
 	    driver.findElement(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/addList.png']")).click();
 	    ///ice-medios-web/imagenes/botones/addList.png

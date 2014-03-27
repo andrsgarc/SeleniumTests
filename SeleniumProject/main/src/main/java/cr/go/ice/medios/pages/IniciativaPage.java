@@ -1,61 +1,28 @@
 package cr.go.ice.medios.pages;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.common.base.Function;
+public class IniciativaPage extends MainPage {
 
-public class IniciativaPage {
-	private final WebDriver driver;
-	private final Wait<WebDriver> wait;
-	String _iniciativaName = "IniSel2014M80"; 
+	
+	
 	public IniciativaPage(WebDriver driver) {
-		this.driver = driver;
-		
-		FluentWait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver);
-		wait = fluentWait
-					.withTimeout(60, TimeUnit.SECONDS)
-					.pollingEvery(5, TimeUnit.SECONDS);
+		super(driver);
 	}
-	
-	public void login(){
-		String tmpTitle = "Sistema gesti\u00f3n de medios";
-		wait.until(ExpectedConditions.titleIs(tmpTitle));
-		
-	}
-	
-	public void fluentWait(final By locator, final String argText) {
-	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-	            .withTimeout(60, TimeUnit.SECONDS)
-	            .pollingEvery(5, TimeUnit.SECONDS)
-	            .ignoring(NoSuchElementException.class);
 
-	    WebElement selectionElement = wait.until(new Function<WebDriver, WebElement>() {
-	        public WebElement apply(WebDriver driver) {
-	        	
-	        	WebElement tmpElement = driver.findElement(locator);
-	        	new Select(tmpElement).selectByValue(argText);
-	            return tmpElement;
-	        }
-	    });
 
-	};
-	
 	public void openFormIniciativa() throws InterruptedException{
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();		
 		driver.findElement(By.id("listCampCampana:btnInsertar")).click();
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:txt_nombreCampana")).clear();
-	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:txt_nombreCampana")).sendKeys(_iniciativaName);
+	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:txt_nombreCampana")).sendKeys(INICIATIVA_NAME);
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_cb")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_ct']//span[text()=1]")));
 	    driver.findElement(By.xpath("//table[@id='formIniIniciativa:tabSetIniIniciativa:0:fechaInicio_ct']//span[text()=1]")).click();
@@ -98,7 +65,7 @@ public class IniciativaPage {
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();		
 		driver.findElement(By.id("listCampCampana:txtNombreIniciativa")).clear();
-	    driver.findElement(By.id("listCampCampana:txtNombreIniciativa")).sendKeys(_iniciativaName);
+	    driver.findElement(By.id("listCampCampana:txtNombreIniciativa")).sendKeys(INICIATIVA_NAME);
 	    driver.findElement(By.id("listCampCampana:btnConsultarIniciativa")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/editar_campana.gif']")));
 	    driver.findElement(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/editar_campana.gif']")).click();
@@ -195,7 +162,7 @@ driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIn
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();
 		driver.findElement(By.xpath("//span[text()='Iniciativas']")).click();		
 		driver.findElement(By.id("listCampCampana:txtNombreIniciativa")).clear();
-		driver.findElement(By.id("listCampCampana:txtNombreIniciativa")).sendKeys(_iniciativaName);
+		driver.findElement(By.id("listCampCampana:txtNombreIniciativa")).sendKeys(INICIATIVA_NAME);
 		driver.findElement(By.id("listCampCampana:btnConsultarIniciativa")).click();
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/editar_campana.gif']")));
 	    driver.findElement(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/editar_campana.gif']")).click();
