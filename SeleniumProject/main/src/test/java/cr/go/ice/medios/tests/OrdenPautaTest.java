@@ -13,22 +13,7 @@ public class OrdenPautaTest extends TestSicome{
 		mainPage.login();
 		mainPage.openOrdenPauta();
 	}
-	
-	
-	@Test
-	public void crearOrdenPautaTest() throws Exception {
-		OrdenPautaPage pautaPage = new OrdenPautaPage(driver);
-		pautaPage.login();
-		pautaPage.openFormPauOrdenPauta();
-	}
-	
-	@Test
-	public void aprobarOrdenPautaTest() throws Exception {
-		OrdenPautaPage pautaPage = new OrdenPautaPage(driver);
-		pautaPage.login();
-		pautaPage.aprobarPauOrdenPauta();
-	}
-	
+
 	
 	@Test
 	public void ordenPautaFullTest() throws Exception {

@@ -37,13 +37,13 @@ public class IniciativaPage extends MainPage {
 
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.id("formIniIniciativa:tabSetIniIniciativa:0:cambiarSector"))); 
 	    	    
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formIniIniciativa:tabSetIniIniciativa:0:orgSector"), "OrgSector[id=50050]");
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formIniIniciativa:tabSetIniIniciativa:0:orgDireccion"), "OrgDireccion[id=52152]");
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formIniIniciativa:tabSetIniIniciativa:0:somNegocio"), "NegNegocio[id=5]");
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formIniIniciativa:tabSetIniIniciativa:0:orgProceso"), "OrgProceso[id=51353]");
 	    
 	    
@@ -106,6 +106,8 @@ public class IniciativaPage extends MainPage {
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:btnInsertarMeta")).click();
 	    
 	    driver.findElement(By.id("formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:scbPorcentaje")).click();
+	    
+	    Thread.sleep(2000);
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:4') and not(@disabled)]")));
 
 	    driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0:dtPresupuestos:0') and not(@disabled)]")).click();
@@ -173,10 +175,10 @@ driver.findElement(By.xpath("//input[starts-with(@id,'formIniIniciativa:tabSetIn
 		
 	}
 	
-	public void crearCampanniaTarget()
+	public void crearCampanniaTarget() throws InterruptedException
 	{
 		ingresarCampannia();
-	    
+	    Thread.sleep(1000);
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@id='formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0.1']")));	    
 	    driver.findElement(By.xpath("//a[@id='formIniIniciativa:tabSetIniIniciativa:0:tabSetCampanna:0.1']")).click();
 	    

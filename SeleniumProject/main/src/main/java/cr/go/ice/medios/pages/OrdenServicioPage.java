@@ -27,26 +27,26 @@ public class OrdenServicioPage extends MainPage {
 	    driver.findElement(By.id("formSerOrdenServicio:btnInsertarRazonSocial")).click();
 	    
 	    driver.findElement(By.id("popupListMedRazonSocial:dtMedRazonSocial:0:btnSelect")).click();
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formSerOrdenServicio:cmbSector"), "OrgSector[id=50050]");
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formSerOrdenServicio:cmbDireccion"), "OrgDireccion[id=52152]");
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formSerOrdenServicio:cmbNegocio"), "NegNegocio[id=5]");
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formSerOrdenServicio:cmbProceso"), "OrgProceso[id=51353]");
 
 	    
-	    Thread.sleep(500);
+	    Thread.sleep(1000);
 	    fluentWait(By.id("formSerOrdenServicio:cmbTipoContrato"), "NegTipoContrato[id=1]");
 	    
 	    
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).clear();
-	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).sendKeys("1000000");
+	    driver.findElement(By.id("formSerOrdenServicio:txt_montoTotal")).sendKeys("10000000");
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).click();
 	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).clear();
-	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).sendKeys("1000000");
+	    driver.findElement(By.id("formSerOrdenServicio:txt_montoSaldo")).sendKeys("10000000");
 	    driver.findElement(By.id("formSerOrdenServicio:btnActivarOrdenServicio")).click();		
 	    driver.findElement(By.id("formSerOrdenServicio:btnGuardarSerOrdenServicio")).click();		
 	}
