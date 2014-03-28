@@ -8,40 +8,40 @@ BEGIN
 delete from org_firmante where ini_iniciativa_fk = (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90');
 
 
-delete from camp_indicador_asociado where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_indicador_asociado where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_meta_cuantitativa where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_meta_cuantitativa where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_objetivo_estrategico where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_objetivo_estrategico where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_presupuesto where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_presupuesto where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_riesgo_asociado where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_riesgo_asociado where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_factor_critico where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_factor_critico where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_accion_deseada where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_accion_deseada where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_necesidad_resolver where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_necesidad_resolver where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_observacion_estado where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_observacion_estado where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_observaciones where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_observaciones where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from camp_region_campana where camp_campana_pkc = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from camp_region_campana where camp_campana_pkc = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
-delete from med_plan_medios where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+delete from med_plan_medios where camp_campana_fk = (Select max(campannia.camp_campana_pk) from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M90')));
 
 Select max(campannia.camp_campana_pk) into v_campanniaPk from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
