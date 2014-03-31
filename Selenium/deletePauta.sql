@@ -1,5 +1,0 @@
-delete from pau_calendario where pau_orden_pauta_fk = (select max(pau_orden_pauta_pk) from pau_orden_pauta where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
-(Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M91'))));
-
-delete from pau_orden_pauta where camp_campana_fk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
-(Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M91')));

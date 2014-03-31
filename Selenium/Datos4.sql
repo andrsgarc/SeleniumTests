@@ -4,6 +4,7 @@ DECLARE
   v_ordenServicioPk         ser_orden_servicio.ser_orden_servicio_pk%TYPE;
   v_campanniaPk 			camp_campana.camp_campana_pk%TYPE;
   v_pautaInsertPk         pau_orden_pauta.PAU_ORDEN_PAUTA_PK%TYPE;
+  v_pauBonificacionPk     pau_bonificacion.pau_bonificacion_pk%TYPE;
   
 BEGIN
   v_ordenServicioPk := 0;
@@ -14,9 +15,13 @@ BEGIN
   
 Select max(campannia.camp_campana_pk) into v_campanniaPk from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
 (Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M91'));
-select max(ser_orden_servicio_pk)* into v_ordenServicioPk from ser_orden_servicio where NUMERO_ORDEN = '398199';
+select max(ser_orden_servicio_pk) into v_ordenServicioPk from ser_orden_servicio where NUMERO_ORDEN = '398199';
 SELECT SEQ_PAU_ORDEN_PAUTA.NEXTVAL into v_pautaInsertPk from dual;  
 
+SELECT SEQ_PAU_BONIFICACION.NEXTVAL into v_pauBonificacionPk from dual;
+
+Insert into PAU_BONIFICACION (PAU_BONIFICACION_PK,ENTITY_STATUS,ENTITY_VERSION,ESTADO,FECHA_LIMITE,MONTO_BONO_SER,ORG_MONEDA_FK,
+MED_RAZON_SOCIAL_FK,ACTIVO,SER_ORDEN_SERVICIO_FK) values (v_pauBonificacionPk,'0','0',null,SYSDATE,null,'1','52000','1',v_ordenServicioPk);
 
 Insert into PAU_ORDEN_PAUTA (PAU_ORDEN_PAUTA_PK,ENTITY_STATUS,ENTITY_VERSION,APARICIONES_TOTALES,APROBADO,ESTADO_PAUTA,FECHA_ORDEN,MONITOREO_CORRECTO,NUMERO_PAU,OBSERVACIONES_PAU,
 PRECIO_LISTA_PAUTA,PRODUCTO,RANGO_FECHAS,SUBTOTAL,TOTAL,CAMP_CAMPANA_FK,
@@ -25,7 +30,7 @@ ORG_CONTACTO_FK,BONIFICACION,MED_RAZON_SOCIAL_FK,ORG_USUARIO_CREACION_FK,ORG_USU
 CANTIDAD_PAUTADO_DIA,APLICA_MULTIPLICACION,FECHA_INICIO_CALENDARIO,FECHA_FIN_CALENDARIO,ORG_TIPO_CAMBIO_FK,NEG_PRSPST_NEGOCIO_ANUAL_FKC,
 NEG_PRSPST_ANNO_FKC,ORG_TIPO_CAMBIO_CATEGORIA_FK,DESCUENTO) values 
 (v_pautaInsertPk,'0','3','27','1','1',SYSDATE,null,'PAU-02996',null,'150000,5',null,null,'150000,5','150000,5',v_campanniaPk,
-'59100',null,'56201','155050','54353','1','136700',v_ordenServicioPk,
+'59100',null,'56201','155050','54353','1',v_pauBonificacionPk,v_ordenServicioPk,
 '61351','0','52000','5','5',null,null,null,'0',SYSDATE - 10,SYSDATE,null,'5','2014',null,'0');
 
 
@@ -38,3 +43,5 @@ Insert into PAU_CALENDARIO (PAU_CALENDARIO_PK,ENTITY_STATUS,ENTITY_VERSION,FECHA
 Insert into PAU_CALENDARIO (PAU_CALENDARIO_PK,ENTITY_STATUS,ENTITY_VERSION,FECHA,PAU_ORDEN_PAUTA_FK,CANTIDAD,MENSUAL) values (SEQ_PAU_CALENDARIO.NEXTVAL,'0','0',SYSDATE-4,v_pautaInsertPk,'3','1');
 Insert into PAU_CALENDARIO (PAU_CALENDARIO_PK,ENTITY_STATUS,ENTITY_VERSION,FECHA,PAU_ORDEN_PAUTA_FK,CANTIDAD,MENSUAL) values (SEQ_PAU_CALENDARIO.NEXTVAL,'0','0',SYSDATE-3,v_pautaInsertPk,'3','1');
 Insert into PAU_CALENDARIO (PAU_CALENDARIO_PK,ENTITY_STATUS,ENTITY_VERSION,FECHA,PAU_ORDEN_PAUTA_FK,CANTIDAD,MENSUAL) values (SEQ_PAU_CALENDARIO.NEXTVAL,'0','0',SYSDATE-2,v_pautaInsertPk,'3','1');
+
+END;

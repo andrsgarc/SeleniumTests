@@ -1,3 +1,0 @@
-Delete from pag_pauta_pago where pag_orden_pago_pkc =  (Select distinct(pag_orden_pago_pk) from pag_orden_pago where ser_orden_servicio_fk = (Select distinct(ser.ser_orden_servicio_pk) FROM ser_orden_servicio ser WHERE ser.numero_orden = '398199'));
-
-Delete from pag_orden_pago where ser_orden_servicio_fk = (Select distinct(ser.ser_orden_servicio_pk) FROM ser_orden_servicio ser WHERE ser.numero_orden = '398199')
