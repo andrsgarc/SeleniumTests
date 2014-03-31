@@ -2,6 +2,7 @@ DECLARE
 
   v_campanniaInsertPk         camp_campana.camp_campana_pk%TYPE;
   v_iniciativaInsertPk         ini_iniciativa.ini_iniciativa_pk%TYPE;
+  v_fechaFinCampannia 		camp_campana.fecha_fin%TYPE;
   
 BEGIN
   v_campanniaInsertPk := 0;
@@ -10,9 +11,9 @@ BEGIN
 SELECT SEQ_INI_INICIATIVA.NEXTVAL INTO v_iniciativaInsertPk from dual;
 SELECT SEQ_CAMP_CAMPANA.NEXTVAL into v_campanniaInsertPk from dual;  
   
-Insert into INI_INICIATIVA (INI_INICIATIVA_PK,ENTITY_STATUS,ENTITY_VERSION,NOMBRE_INICIATIVA,OBJETIVO_GENERAL,DESCRIPCION,MERCADO_POTENCIAL,META_DESEMPENNO,DIFERENCIADOR,CANALES,FECHA_INICIO,FECHA_FIN,CODIGO_INICIATIVA,PRESUPUESTO_DISPONIBLE,PRESUPUESTO_ESTIMADO,PRESUPUESTO_GASTADO,PRESUPUESTO_RESERVADO,PRESUPUESTO_ESTIMADO_ORIGINAL,INI_ESTADO_FK,INI_TIPO_INICIATIVA_FK,INI_TIPO_OFERTA_FK,ORG_SECTOR_FK,ORG_DIRECCION_FK,NEG_NEGOCIO_FK,ORG_PROCESO_FK,ORG_MONEDA_FK,PORCENTAJE,GANANCIA_ESTIMADA,GANANCIA_REAL,PRESUPUESTO_REAL) values (v_iniciativaInsertPk,'0','3','IniSel2014M90',null,null,null,null,null,null,to_date('01/03/14','DD/MM/RR'),to_date('28/03/14','DD/MM/RR'),'INICIATIVA-0317-2014',null,'100000000',null,null,'0','0','15051',null,'50050','52152','5','51353','1','0',null,null,null);
+Insert into INI_INICIATIVA (INI_INICIATIVA_PK,ENTITY_STATUS,ENTITY_VERSION,NOMBRE_INICIATIVA,OBJETIVO_GENERAL,DESCRIPCION,MERCADO_POTENCIAL,META_DESEMPENNO,DIFERENCIADOR,CANALES,FECHA_INICIO,FECHA_FIN,CODIGO_INICIATIVA,PRESUPUESTO_DISPONIBLE,PRESUPUESTO_ESTIMADO,PRESUPUESTO_GASTADO,PRESUPUESTO_RESERVADO,PRESUPUESTO_ESTIMADO_ORIGINAL,INI_ESTADO_FK,INI_TIPO_INICIATIVA_FK,INI_TIPO_OFERTA_FK,ORG_SECTOR_FK,ORG_DIRECCION_FK,NEG_NEGOCIO_FK,ORG_PROCESO_FK,ORG_MONEDA_FK,PORCENTAJE,GANANCIA_ESTIMADA,GANANCIA_REAL,PRESUPUESTO_REAL) values (v_iniciativaInsertPk,'0','3','IniSel2014M91',null,null,null,null,null,null,to_date('01/03/14','DD/MM/RR'),to_date('28/03/14','DD/MM/RR'),'INICIATIVA-0317-2014',null,'100000000',null,null,'0','0','15051',null,'50050','52152','5','51353','1','0',null,null,null);
 
-Insert into CAMP_CAMPANA (CAMP_CAMPANA_PK,ENTITY_STATUS,ENTITY_VERSION,ALCANCE,ANTECEDENTES_CAMPANA,AUTORIZADO,CODIGO_CAMPANA,ESTADO_CAMPANA,FECHA_FIN,FECHA_INICIO,IDEA_CENTRAL,JUSTIFICACION,NOMBRE_CAMPANA,OBJETIVO_COMUNICACION,PLAN_PATROCINIOS,PRESUPUESTO_DISPONIBLE,PRESUPUESTO_ESTIMADO,PRESUPUESTO_GASTADO,PRESUPUESTO_MEDIO,PRESUPUESTO_OTROS,PRESUPUESTO_PATROCINIO,PRESUPUESTO_PRODUCCION,PRESUPUESTO_PROMOCIONALES,PRESUPUESTO_RESERVADO,PROMESA_BASICA,REQUISITOS_CONDICIONES,ORG_MONEDA_FK,HAS_PLAN_MEDIOS,PORCENTAJE,PRESUPUESTO_ESTIMADO_ORIGINAL,MULTIPLES_INICIATIVAS,CERRADA) values (v_campanniaInsertPk,'0','4','Alcance descripcion',null,null,'CC-0313-2014','6',to_date('28/03/14','DD/MM/RR'),to_date('01/03/14','DD/MM/RR'),null,null,'IniSel2014M90',null,null,null,'100000000',null,null,null,null,null,null,null,null,'Descripcion de campannia de prueba','1','1','1',null,'0','0');
+Insert into CAMP_CAMPANA (CAMP_CAMPANA_PK,ENTITY_STATUS,ENTITY_VERSION,ALCANCE,ANTECEDENTES_CAMPANA,AUTORIZADO,CODIGO_CAMPANA,ESTADO_CAMPANA,FECHA_FIN,FECHA_INICIO,IDEA_CENTRAL,JUSTIFICACION,NOMBRE_CAMPANA,OBJETIVO_COMUNICACION,PLAN_PATROCINIOS,PRESUPUESTO_DISPONIBLE,PRESUPUESTO_ESTIMADO,PRESUPUESTO_GASTADO,PRESUPUESTO_MEDIO,PRESUPUESTO_OTROS,PRESUPUESTO_PATROCINIO,PRESUPUESTO_PRODUCCION,PRESUPUESTO_PROMOCIONALES,PRESUPUESTO_RESERVADO,PROMESA_BASICA,REQUISITOS_CONDICIONES,ORG_MONEDA_FK,HAS_PLAN_MEDIOS,PORCENTAJE,PRESUPUESTO_ESTIMADO_ORIGINAL,MULTIPLES_INICIATIVAS,CERRADA) values (v_campanniaInsertPk,'0','4','Alcance descripcion',null,null,'CC-0313-2014','6',to_date('28/03/14','DD/MM/RR'),to_date('01/03/14','DD/MM/RR'),null,null,'IniSel2014M91',null,null,null,'100000000',null,null,null,null,null,null,null,null,'Descripcion de campannia de prueba','1','1','1',null,'0','0');
 
 Insert into INI_INICIATIVA_CAMPANA (INI_INICIATIVA_FK,CAMP_CAMPANA_FK) values (v_iniciativaInsertPk, v_campanniaInsertPk);
 
@@ -33,6 +34,21 @@ Insert into CAMP_INDICADOR_ASOCIADO (CAMP_INDICADOR_ASOCIADO_PK,ENTITY_STATUS,EN
 Insert into ORG_FIRMANTE (ORG_FIRMANTE_PK,ENTITY_STATUS,ENTITY_VERSION,ESTADO_FIRMA,FECHA_FIRMADO,FIRMA_SELLO,OBSERVACION,TITULO,CAMP_CAMPANA_FK,EVT_EVENTO_FK,ORG_USUARIO_FK,PAU_ORDEN_PAUTA_FK,PTR_PATROCINIO_FK,INI_INICIATIVA_FK) values (SEQ_ORG_FIRMANTE.NEXTVAL,'0','0','4',null, EMPTY_BLOB(),null,'DIRECTOR NEGOCIO',null,null,'5',null,null,v_iniciativaInsertPk);
 
 Insert into MED_PLAN_MEDIOS (MED_PLAN_MEDIOS_PK,ENTITY_STATUS,ENTITY_VERSION,CODIGO_PLAN,META_ACTIVA,META_EDAD_MAX,META_EDAD_MIN,META_FECHA_MODIFICACION,META_HOMBRES,META_MUJERES,META_OTROS,CAMP_CAMPANA_FK,MED_AGENCIA_PUBLICITARIA_FK,MED_META_OCUPACION_FK) values (SEQ_MED_PLAN_MEDIOS.NEXTVAL,'0','1','PM-241-2014','1','20','10',to_date('28/03/14','DD/MM/RR'),'0','1',null,v_campanniaInsertPk,null,'51012');
+
+
+Select fecha_fin into v_fechaFinCampannia from camp_campana where camp_campana_pk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+(Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M91')));
+ 
+if v_fechaFinCampannia < SYSDATE
+  then      
+        update camp_campana set fecha_fin = SYSDATE + 30 where camp_campana_pk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+(Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M91')));
+        update camp_campana set fecha_inicio = SYSDATE - 30 where camp_campana_pk = (Select max(campannia.camp_campana_pk)from camp_campana campannia where campannia.camp_campana_pk = (Select max(incamp.camp_campana_fk) from ini_iniciativa_campana incamp where incamp.ini_iniciativa_fk = 
+(Select max(ini.ini_iniciativa_pk) from ini_iniciativa ini where ini.nombre_iniciativa = 'IniSel2014M91')));
+
+end if;
+
+--Para que el limite de la campannia sea valido 
 
 END;
 
