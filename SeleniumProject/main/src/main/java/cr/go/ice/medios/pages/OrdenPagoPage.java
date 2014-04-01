@@ -30,7 +30,7 @@ public class OrdenPagoPage extends MainPage {
 	    driver.findElement(By.id("formPagOrdenPago:txtConceptoPago")).sendKeys("Pago Ordenes Testing");
 	    driver.findElement(By.id("formPagOrdenPago:btnBuscarOrden")).click();
 	    driver.findElement(By.id("popupListSerOrdenServicio:txtNumeroOrden")).clear();
-	    driver.findElement(By.id("popupListSerOrdenServicio:txtNumeroOrden")).sendKeys(ORDEN_SERVICIO_NUMERO);
+	    driver.findElement(By.id("popupListSerOrdenServicio:txtNumeroOrden")).sendKeys(ORDEN_SERVICIO_PAUTA_NUMERO);
 	    driver.findElement(By.id("popupListSerOrdenServicio:btnConsultar")).click();
 	    driver.findElement(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/addList.png']")).click();
 	    ///ice-medios-web/imagenes/botones/addList.png

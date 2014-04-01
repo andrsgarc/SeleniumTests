@@ -42,11 +42,15 @@ public class OrdenPautaPage extends MainPage {
 	    fluentWait(By.id("formPauOrdenPauta:cmbEjecutivoCuenta"), "OrgContacto[id=61351]");
 	    
 	    Thread.sleep(1000);
-	    fluentWait(By.id("formPauOrdenPauta:cmbSerOrdenServicio"), "SerOrdenServicio[id=95300]"); //Debe haber inicialmente una orden de servicio
+	    
+	    String selBoxID = "formPauOrdenPauta:cmbSerOrdenServicio";
+	    String partialText = Constants.ORDEN_SERVICIO_PAUTA_NUMERO;
+	    driver.findElement(By.xpath("//select[@id='" + selBoxID + "']/option[contains(text(), '" + partialText + "')]")).click();
+	    //fluentWait(By.id("formPauOrdenPauta:cmbSerOrdenServicio"), "SerOrdenServicio[id=95300]"); //Debe haber inicialmente una orden de servicio
 	     
 	    driver.findElement(By.id("formPauOrdenPauta:btnSearchCampana")).click();
 	    driver.findElement(By.id("popupListCampCampana:txtNombreCampannia")).clear();
-	    driver.findElement(By.id("popupListCampCampana:txtNombreCampannia")).sendKeys(INICIATIVA_NAME); //Codigo de la iniciativa
+	    driver.findElement(By.id("popupListCampCampana:txtNombreCampannia")).sendKeys(INICIATIVA_PAUTA_NAME); //Codigo de la iniciativa
 	    driver.findElement(By.id("popupListCampCampana:btnConsulta")).click();	    
 	    new WebDriverWait(driver, 60).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/addList.png']")));
 	    driver.findElement(By.xpath("//input[@src='/ice-medios-web/imagenes/botones/addList.png']")).click();

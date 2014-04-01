@@ -11,9 +11,11 @@ public interface Constants {
 	public static String ORDEN_SERVICIO_COMPROMISO = "2109-8477-5999";
 	
 	//Constantes Iniciativa
-	public static String INICIATIVA_PAUTA_NAME = "IniSel2014M82"; 
+	public static String INICIATIVA_PAUTA_NAME = "IniSel2014M93"; 
 	
-	public static String INICIATIVA_NAME = "IniSel2014M88"; 
+	public static String INICIATIVA_PAGO_NAME = "IniSel2014M91"; 
+	
+	public static String INICIATIVA_NAME = "IniSel2014M92"; 
 	public static String PAGINA_PRINCIPAL_TITLE = "Sistema gesti\u00f3n de medios";
 
 }
